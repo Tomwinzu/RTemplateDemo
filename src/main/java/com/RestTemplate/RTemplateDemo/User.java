@@ -8,23 +8,8 @@ public class User {
     private String name;
     private int age;
     private String gender;
-    private String nationality;
+    private String country;
 
-    private User1 user1;
-    private  User2 user2;
-    private User3 user3;
-
-    public User1 getUser1() {
-        return user1;
-    }
-
-    public User2 getUser2() {
-        return user2;
-    }
-
-    public User3 getUser3() {
-        return user3;
-    }
 
     public String getName() {
         return name;
@@ -38,18 +23,18 @@ public class User {
         return gender;
     }
 
-    public String getNationality() {
-        return nationality;
+    public String getCountry() {
+        return country;
     }
 
     public User() {
     }
 
-    public User(String name, int age, String gender, String nationality) {
+    public User(String name, int age, String gender, String country) {
         this.name = name;
         this.age = age;
         this.gender = gender;
-        this.nationality = nationality;
+        this.country = country;
 
     }
 
@@ -59,7 +44,7 @@ public class User {
                 "name='" + name + '\'' +
                 ", age=" + age +
                 ", gender='" + gender + '\'' +
-                ", nationality='" + nationality + '\'' +
+                ", country='" + country + '\'' +
                 '}';
     }
 
