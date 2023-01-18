@@ -1,67 +1,63 @@
 package com.RestTemplate.RTemplateDemo;
 
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 
+import java.util.List;
 
 
 @RestController
-@RequestMapping
 public class UserController {
 
 
     private RestTemplate restTemplate;
-
-    @GetMapping("/api/user-management/user/name=tom")
-    public User user(@RequestParam(value = "name", defaultValue = "tom") String name) {
-
-
-        @RequestMapping("/getObject/gender")
+          private User getUser;
+            @RequestMapping("/getObject/gender")
 
 
-        class  User1//(@RequestParam(value = "name", defaultValue = "tom") String name) {
+       public User1  getUser1 (@PathVariable String name)  {
 
-        {String url = "https://api.genderize.io?name=tom";
-            User1 user1 = restTemplate.getForObject(url, User1.class);
+              User1 getUser1= new User1();
+            String url = "https://api.genderize.io?name=tom";
 
-            public  User1 getUser1() {
-                return user1;
+            User1 getUser = restTemplate.getForObject(url, User1.class);
+
+                  return getUser1;
             }
 
-        }
 
-        @RequestMapping("/getObjet/age")
+        @RequestMapping(value = "/getObjet/age" )
 
-        class User2//(@RequestParam(value = "name", defaultValue = "tom") String name) {
+         public  User2 getUser2 (@PathVariable String name){
 
-        {String url = "https://api.agify.io?name=tom";
+        String url = "https://api.agify.io?name=tom";
 
-            User2 user2 = restTemplate.getForObject(url, User2.class);
+            User2 getUser2  = restTemplate.getForObject(url, User2.class);
 
-
-            public User2 getUser2() {
-                return user2;
+            return getUser2 ;
             }
-        }
 
         @RequestMapping("/getObjet/country")
 
-        class User3//(@RequestParam(value = "name", defaultValue = "tom") String name) {
+      public User3 getUser3(@PathVariable String name) {
 
-        {String url = "https://api.nationalize.io?name=tom";
 
-            User3 user3 = restTemplate.getForObject(url, User3.class);
 
-            public User3 getUser3() {
-                return user3;
-            }
+              String url = "https://api.nationalize.io?name=tom";
+
+            User3  getUser3 = restTemplate.getForObject(url, User3.class);
+
+                           return  getUser3;
 
         }
-    return new User();
+    @GetMapping("/api/user-management/user/name=tom")
+    public User getUser(@RequestParam(value = "name", defaultValue = "tom") String name) {
+
+
+
+        return new User(getUser.getName(),getUser.getAge(),getUser.getGender(),getUser.getGender()) ;
+
     }
 
 }
