@@ -30,7 +30,7 @@ public class User {
     public User() {
     }
 
-    public User(String name, int age, String gender, String country) {
+    public User(String name, int age, String gender) {
         this.name = name;
         this.age = age;
         this.gender = gender;

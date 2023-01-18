@@ -1,17 +1,19 @@
 package com.RestTemplate.RTemplateDemo;
 
 public class User3 {
-    private Country country1;
+    private String  country ;
      private String name;
 
 
+    public User3(String country, String name) {
+        this.country = country;
+        this.name = name;
+    }
 
     public User3() {
 
     }
 
-    public User3(Country country1, String name) {
-        this.country1 = country1;
-        this.name = name;
+
     }
-}
+
