@@ -8,8 +8,17 @@ public class User {
     private String name;
     private int age;
     private String gender;
-    private String country;
+    private String country_id;
 
+    public User() {
+    }
+
+    public User(String name, int age, String gender, String country_id) {
+        this.name = name;
+        this.age = age;
+        this.gender = gender;
+        this.country_id = country_id;
+    }
 
     public String getName() {
         return name;
@@ -23,19 +32,8 @@ public class User {
         return gender;
     }
 
-    public String getCountry() {
-        return country;
-    }
-
-    public User() {
-    }
-
-    public User(String name, int age, String gender) {
-        this.name = name;
-        this.age = age;
-        this.gender = gender;
-        this.country = country;
-
+    public String getCountry_id() {
+        return country_id;
     }
 
     @Override
@@ -44,7 +42,7 @@ public class User {
                 "name='" + name + '\'' +
                 ", age=" + age +
                 ", gender='" + gender + '\'' +
-                ", country='" + country + '\'' +
+                ", country_id='" + country_id + '\'' +
                 '}';
     }
 

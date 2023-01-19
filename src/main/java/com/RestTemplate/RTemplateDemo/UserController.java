@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 
+import java.util.ArrayList;
+import java.util.List;
 
 
 @RestController
@@ -39,28 +41,35 @@ public class UserController {
         String url = "https://api.agify.io/?name=tom";
 
         User2 getUser2 = restTemplate.getForObject(url, User2.class);
-
         return getUser2;
     }
 
 
+   public Country getCountryId (String name) {
 
-  /*  public User3 getUser3(String name) {
+       String url = "https://api.nationalize.io?name=tom";
+       Country getCountryId = restTemplate.getForObject(url, Country.class);
+
+       return getCountryId;
+   }
 
 
-        String url = "https://api.nationalize.io?name=tom";
+    /*for (int i = 1; i <  ; i++) {
+           float f = 0.000F;
+           if (f > countryId.getProbability()) {
 
-        User3 getUser3 = restTemplate.getForObject(url, User3.class);
-        System.out.println(getUser3);
-        return getUser3;
+         Country getNationality = countryId;
 
-    }*/
+           }
+       }    return countryId;
+
+   }*/
 
     @GetMapping("/api/user-management/user/tom")
     public User getUser(@RequestParam(value="name",defaultValue = "tom") String name) {
 
 
-        return new User("tom", getUser2("tom").getAge(),getUser1("tom").getGender());
+        return new User("tom", getUser2("tom").getAge(),getUser1("tom").getGender(),getCountryId("tom").getCountry_id());
 
     }
 }
