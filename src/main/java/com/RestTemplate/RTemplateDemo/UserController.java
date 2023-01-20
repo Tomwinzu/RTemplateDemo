@@ -45,14 +45,16 @@ public class UserController {
     }
 
 
-   public Country getCountryId (String name) {
+   public User3 getUser3 (String name) {
 
        String url = "https://api.nationalize.io?name=tom";
-       Country getCountryId = restTemplate.getForObject(url, Country.class);
+ User3 getUser3 = restTemplate.getForObject(url, User3.class);
 
-       return getCountryId;
-   }
 
+
+           return  getUser3;
+
+    }
 
     /*for (int i = 1; i <  ; i++) {
            float f = 0.000F;
@@ -69,7 +71,7 @@ public class UserController {
     public User getUser(@RequestParam(value="name",defaultValue = "tom") String name) {
 
 
-        return new User("tom", getUser2("tom").getAge(),getUser1("tom").getGender(),getCountryId("tom").getCountry_id());
+        return new User("tom", getUser2("tom").getAge(),getUser1("tom").getGender(),getUser3("tom").getCountry().get(0).getCountry_id());
 
     }
 }
