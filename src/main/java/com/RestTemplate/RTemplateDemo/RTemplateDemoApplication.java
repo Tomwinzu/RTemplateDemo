@@ -21,7 +21,7 @@ public class RTemplateDemoApplication {
 		public CommandLineRunner run(RestTemplate restTemplate) throws Exception {
 			return args -> {
 				User user = restTemplate.getForObject(
-						"http://localhost:8080/api/user-management/user/tom", User.class);
+						"http://localhost:8080/api/user-management/user?name=", User.class);
 			};
 		}
 	}

@@ -25,7 +25,7 @@ public class UserController {
     public User1 getUser1(String name) {
 
 
-        String  url="https://api.genderize.io/?name=tom";
+        String  url="https://api.genderize.io/?name="+name;
 
         User1 getUser1 = restTemplate.getForObject(url, User1.class);
 
@@ -38,7 +38,7 @@ public class UserController {
     public User2 getUser2(String name) {
 
 
-        String url = "https://api.agify.io/?name=tom";
+        String url = "https://api.agify.io/?name="+name;
 
         User2 getUser2 = restTemplate.getForObject(url, User2.class);
         return getUser2;
@@ -47,7 +47,7 @@ public class UserController {
 
    public User3 getUser3 (String name) {
 
-       String url = "https://api.nationalize.io?name=tom";
+       String url = "https://api.nationalize.io?name="+name;
  User3 getUser3 = restTemplate.getForObject(url, User3.class);
 
 
@@ -67,11 +67,11 @@ public class UserController {
 
    }*/
 
-    @GetMapping("/api/user-management/user/tom")
+    @GetMapping("/api/user-management/user")
     public User getUser(@RequestParam(value="name",defaultValue = "tom") String name) {
 
 
-        return new User("tom", getUser2("tom").getAge(),getUser1("tom").getGender(),getUser3("tom").getCountry().get(0).getCountry_id());
+        return new User(name, getUser2(name).getAge(),getUser1(name).getGender(),getUser3(name).getCountry().get(0).getCountry_id());
 
     }
 }
