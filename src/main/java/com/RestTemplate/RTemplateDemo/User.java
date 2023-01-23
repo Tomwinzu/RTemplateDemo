@@ -8,16 +8,16 @@ public class User {
     private String name;
     private int age;
     private String gender;
-    private String country_id;
+    private String nationality;
 
     public User() {
     }
 
-    public User(String name, int age, String gender, String country_id) {
+    public User(String name, int age, String gender, String nationality) {
         this.name = name;
         this.age = age;
         this.gender = gender;
-        this.country_id = country_id;
+        this.nationality = nationality;
     }
 
     public String getName() {
@@ -32,8 +32,8 @@ public class User {
         return gender;
     }
 
-    public String getCountry_id() {
-        return country_id;
+    public String getNationality() {
+        return nationality;
     }
 
     @Override
@@ -42,7 +42,7 @@ public class User {
                 "name='" + name + '\'' +
                 ", age=" + age +
                 ", gender='" + gender + '\'' +
-                ", country_id='" + country_id + '\'' +
+                ", nationality='" + nationality+ '\'' +
                 '}';
     }
 
