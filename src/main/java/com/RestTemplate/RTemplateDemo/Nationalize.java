@@ -2,13 +2,12 @@ package com.RestTemplate.RTemplateDemo;
 
 import java.util.List;
 
-public class User3 {
+public class Nationalize {
 
-  List <Country> country;
+    List<Country> country;
     private String name;
 
-    public User3() {
-    }
+
 
     public List<Country> getCountry() {
         return country;

@@ -1,20 +1,13 @@
 package com.RestTemplate.RTemplateDemo;
 
-public class User2 {
+public class Agify {
     private Integer age;
 
-    private  String count;
+    private String count;
 
     private String name;
 
-    public User2() {
-    }
 
-    public User2(Integer age, String count, String name) {
-        this.age = age;
-        this.count = count;
-        this.name = name;
-    }
 
     public Integer getAge() {
         return age;

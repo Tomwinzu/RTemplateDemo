@@ -1,77 +1,60 @@
 package com.RestTemplate.RTemplateDemo;
 
 
-
 import org.springframework.beans.factory.annotation.Autowired;
 
 
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
-
-import java.util.ArrayList;
-import java.util.List;
 
 
 @RestController
 public class UserController {
 
 
-@Autowired
+    @Autowired
     private RestTemplate restTemplate;
-    private User getUser;
+
 
     @RequestMapping
-    public User1 getUser1(String name) {
+    public Genderize getGenderize(String name) {
 
 
-        String  url="https://api.genderize.io/?name="+name;
+        String url = "https://api.genderize.io/?name=" + name;
 
-        User1 getUser1 = restTemplate.getForObject(url, User1.class);
+        Genderize getGenderize = restTemplate.getForObject(url, Genderize.class);
 
 
-      return getUser1 ;
+        return getGenderize;
     }
 
 
+    public Agify getAgify(String name) {
 
-    public User2 getUser2(String name) {
 
+        String url = "https://api.agify.io/?name=" + name;
 
-        String url = "https://api.agify.io/?name="+name;
-
-        User2 getUser2 = restTemplate.getForObject(url, User2.class);
-        return getUser2;
+        Agify getAgify = restTemplate.getForObject(url, Agify.class);
+        return getAgify;
     }
 
 
-   public User3 getUser3 (String name) {
+    public Nationalize getNationalize(String name) {
 
-       String url = "https://api.nationalize.io?name="+name;
- User3 getUser3 = restTemplate.getForObject(url, User3.class);
+        String url = "https://api.nationalize.io?name=" + name;
+        Nationalize getNationalize = restTemplate.getForObject(url, Nationalize.class);
 
 
-
-           return  getUser3;
+        return getNationalize;
 
     }
 
-    /*for (int i = 1; i <  ; i++) {
-           float f = 0.000F;
-           if (f > countryId.getProbability()) {
 
-         Country getNationality = countryId;
-
-           }
-       }    return countryId;
-
-   }*/
-
-    @GetMapping("/api/user-management/user")
-    public User getUser(@RequestParam(value="name",defaultValue = "tom") String name) {
+    @GetMapping("/api/user-management/user/{name}")
+    public User getUser(@PathVariable("name") String name) {
 
 
-        return new User(name, getUser2(name).getAge(),getUser1(name).getGender(),getUser3(name).getCountry().get(0).getCountry_id());
+        return new User(name, getAgify(name).getAge(), getGenderize(name).getGender(), getNationalize(name).getCountry().get(0).getCountry_id());
 
     }
 }
