@@ -16,8 +16,7 @@ public class UserController {
     private RestTemplate restTemplate;
 
 
-    @RequestMapping
-    public Genderize getGenderize(String name) {
+   private  Genderize getGenderize(String name) {
 
 
         String url = "https://api.genderize.io/?name=" + name;
@@ -29,7 +28,7 @@ public class UserController {
     }
 
 
-    public Agify getAgify(String name) {
+   private Agify getAgify(String name) {
 
 
         String url = "https://api.agify.io/?name=" + name;
@@ -39,7 +38,7 @@ public class UserController {
     }
 
 
-    public Nationalize getNationalize(String name) {
+    private Nationalize getNationalize(String name) {
 
         String url = "https://api.nationalize.io?name=" + name;
         Nationalize getNationalize = restTemplate.getForObject(url, Nationalize.class);
